@@ -1,0 +1,173 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+     <style>
+      .input-group-text{
+        display: inline-block;
+        width:15% ;
+        text-align:center;
+
+     }
+
+    </style>
+  </head>
+  <body>
+    <br>
+    <header>
+      <p style="text-align: center; font-size:xx-large ;">ELIGIBILITY PREDICTION FOR EDUCATIONAL LOAN</p>
+    </header>
+    <hr>
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">Home</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <!-- <a class="nav-link active" aria-current="page" href="/">Home</a> -->
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="https://www.linkedin.com/in/yashvi-dhar/">Connect</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Admin Control
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="/adminhome">Admin</a></li>
+                      <li><a class="dropdown-item" href="/">Home</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </div>
+    <br>
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <!-- <li class="breadcrumb-item"><a href="/">Home</a></li> -->
+            </ol>
+          </nav>
+    </div>
+    <br>
+    <div class="container">
+        {% if flg == 1 %}
+        <div class="container">
+        <div class="alert alert-info" role="alert">
+            Your Responses
+            <ul>
+                <li>name: {{name}}</li>
+                <li>age: {{age}}</li>
+                <li>email: {{email}}</li>
+                <li>eligibility: {{eligibility}}</li>
+                <li>Predicted Income: {{Predicted_Income}}</li>
+              </ul>
+          </div>
+        </div>
+        {% endif %}
+       <form class="row g-3" action="/" enctype="multipart/form-data" method="POST"> {% csrf_token %}
+      <div class="input-group">
+        <span class="input-group-text" id="basic-addon1" >Enter Full Name</span>
+        <input name="name" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required>
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">Age</span>
+        <input type="text" name="age" class="form-control" aria-label="With textarea" required></input>
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">Email</span>
+        <input type="email" name="email" class="form-control" aria-label="With textarea" required></input>
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupFile02">Phone Number</label>
+        <input type="text" name="phnno" class="form-control" id="inputGroupFile02" required=True>
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupFile02">Loan Amount</label>
+        <input type="text" name="loanamount" class="form-control" id="inputGroupFile02" required=True>
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupFile02">University Name</label>
+        <input type="text" name="university" class="form-control" id="inputGroupFile02" required=True>
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupFile02">Course</label>
+        <input type="text" name="course" class="form-control" id="inputGroupFile02" required=True>
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupFile02">Work Experience</label>
+        <input type="text" name="workexp" class="form-control" id="inputGroupFile02" required=True>
+      </div>
+
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupFile02">TOEFL Score</label>
+        <input type="text" name="toefl" class="form-control" id="inputGroupFile02" required=True>
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupFile02">GRE Score</label>
+        <input type="text" name="gre" class="form-control" id="inputGroupFile02" required=True>
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupFile02">LOR Score</label>
+        <input type="text" name="lor" class="form-control" id="inputGroupFile02" required=True>
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupFile02">Average CGPA</label>
+        <input type="text" name="cgpa" class="form-control" id="inputGroupFile02" required=True>
+      </div>
+
+
+        <button type="Submit" class="btn btn-outline-success">Submit</button>
+      </form>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        {% if added == 1 %}
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </symbol>
+          </svg>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            No errors Occurred.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <div class="alert alert-success d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <div>
+              User data has been added Successfully!
+            </div>
+          </div>
+        {% elif added == 2 %}
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </symbol>
+          </svg>
+          <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <div>
+              Something went wrong. Please try Again.
+            </div>
+          </div>
+        {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
